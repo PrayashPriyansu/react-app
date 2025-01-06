@@ -20,49 +20,49 @@ function UpdateSettingsForm() {
 
   if (isLoading) return <Spinner />;
 
-  function handleUpdate(e, field) {
-    const { value, defaultValue } = e.target;
+  function handleUpdate(e) {
+    const { value, defaultValue, id } = e.target;
 
     if (!value || defaultValue === value) return;
 
-    updateSetting({ [field]: value });
+    updateSetting({ [id]: value });
   }
   return (
     <Form>
       <FormRow label="Minimum nights/booking">
         <Input
           type="number"
-          id="min-nights"
-          disabled={isLoading}
+          id="minBookingLength"
+          disabled={isUpdating}
           defaultValue={minBookingLength}
-          onBlur={(e) => handleUpdate(e, "minBookingLength")}
+          onBlur={(e) => handleUpdate(e)}
         />
       </FormRow>
       <FormRow label="Maximum nights/booking">
         <Input
           type="number"
-          id="max-nights"
+          id="maxBookingLength"
           defaultValue={maxBookingLength}
-          disabled={isLoading}
-          onBlur={(e) => handleUpdate(e, "maxBookingLength")}
+          disabled={isUpdating}
+          onBlur={(e) => handleUpdate(e)}
         />
       </FormRow>
       <FormRow label="Maximum guests/booking">
         <Input
           type="number"
-          id="max-guests"
+          id="maxGuestsPerBooking"
           defaultValue={maxGuestsPerBooking}
-          disabled={isLoading}
-          onBlur={(e) => handleUpdate(e, "maxGuestsPerBooking")}
+          disabled={isUpdating}
+          onBlur={(e) => handleUpdate(e)}
         />
       </FormRow>
       <FormRow label="Breakfast price">
         <Input
           type="number"
-          id="breakfast-price"
-          disabled={isLoading}
+          id="breakfastPrice"
+          disabled={isUpdating}
           defaultValue={breakfastPrice}
-          onBlur={(e) => handleUpdate(e, "breakfastPrice")}
+          onBlur={(e) => handleUpdate(e)}
         />
       </FormRow>
     </Form>
