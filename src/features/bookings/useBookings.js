@@ -34,7 +34,7 @@ function useBookings() {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["bookings", filter, sortBy, currentPage],
+    queryKey: ["bookings", filter, sortBy, page],
     queryFn: () => getBookings({ filter, sortBy, page }),
   });
 

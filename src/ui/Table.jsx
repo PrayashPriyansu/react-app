@@ -63,7 +63,6 @@ const Empty = styled.p`
 const TableContext = createContext();
 
 export default function Table({ columns, children }) {
-  console.log(columns);
   return (
     <TableContext.Provider value={{ columns }}>
       <StyledTable role="table">{children}</StyledTable>
@@ -73,7 +72,6 @@ export default function Table({ columns, children }) {
 
 function Header({ children }) {
   const { columns } = useContext(TableContext);
-  console.log(columns);
   return (
     <StyledHeader columns={columns} as="header" role="row">
       {children}
