@@ -31,7 +31,7 @@ function useBookings() {
   //Query
   const {
     data: { data: bookings, count } = {},
-    isLoading,
+    isPending: isLoading,
     error,
   } = useQuery({
     queryKey: ["bookings", filter, sortBy, page],
